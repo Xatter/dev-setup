@@ -65,6 +65,8 @@ brew cask install --appdir="/Applications" 1password
 brew cask install powershell
 # Change to the new shell, prompts for password
 sudo bash -c 'echo /usr/local/bin/pwsh >> /etc/shells'
+/usr/local/bin/pwsh -Command Install-Module PSColor
+/usr/local/bin/pwsh -Command Install-Module posh-git
 chsh -s /usr/local/bin/pwsh
 
 brew install terraform
