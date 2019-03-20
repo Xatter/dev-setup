@@ -64,6 +64,7 @@ brew cask install --appdir="/Applications" firefox
 brew cask install --appdir="/Applications" 1password
 brew cask install powershell
 # Change to the new shell, prompts for password
+sudo bash -c 'echo /usr/local/bin/pwsh >> /etc/shells'
 chsh -s /usr/local/bin/pwsh
 
 brew install terraform
