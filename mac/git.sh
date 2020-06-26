@@ -6,6 +6,7 @@ cp /Volumes/DiffMerge\ 4.2.1.1013\ intel\ stable/Extras/diffmerge.sh /usr/local/
 chmod a+x /usr/local/bin/diffmerge.sh
 ln -s /usr/local/bin/diffmerge.sh /usr/local/bin/diffmerge
 hdiutil eject /Volumes/DiffMerge\ 4.2.1.1013\ intel\ stable
+rm DiffMerge.4.2.1.1013.intel.stable.dmg
 
 echo "Setting up DiffMerge tool in git"
 git config --global diff.tool diffmerge
