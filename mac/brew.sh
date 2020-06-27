@@ -43,10 +43,10 @@ brew install python
 brew install python3
 
 # Install more recent versions of some OS X tools.
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+brew install vim 
+brew install grep
+brew install openssh
+brew install screen
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -58,20 +58,15 @@ brew install woff2
 brew install git
 brew install gpg
 
-
 # Development tool casks
 brew cask install --appdir="/Applications" sublime-text
 brew cask install --appdir="/Applications" firefox
 brew cask install --appdir="/Applications" 1password
-brew cask install powershell
-# Change to the new shell, prompts for password
-sudo bash -c 'echo /usr/local/bin/pwsh >> /etc/shells'
-/usr/local/bin/pwsh -Command Install-Module -Confirm PSColor
-/usr/local/bin/pwsh -Command Install-Module -Confirm posh-git
-chsh -s /usr/local/bin/pwsh
 
 brew install terraform
 brew install mas
 
-
 brew cleanup
+
+# enable multi-user
+chmod -R g+w /usr/local
