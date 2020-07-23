@@ -78,15 +78,24 @@ sudo chflags uchg /private/var/vm/sleepimage
 ###############################################################################
 
 # Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.AppleBluetoothMultitouch Clicking -int 1
 
 # Trackpad: enable 3 finger drag
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1
+defaults write com.apple.AppleBluetoothMultitouch TrackpadThreeFingerDrag -int 1
 
-# Increase sound quality for Bluetooth headphones/headsets
-# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+# Trackpad: gestures
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 2;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 2;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 0;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 1;
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3;
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -179,6 +188,9 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 # Autohide the dock
 defaults write com.apple.dock autohide -int 1
 
+# Autohide the menu bar
+defaults write "Apple Global Domain" "_HIHideMenuBar" -int 1
+
 # Enable maginfication on mouse over
 defaults write com.apple.dock magnification -int 1
 
@@ -204,6 +216,7 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom left screen corner → Start screen saver
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
+
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
