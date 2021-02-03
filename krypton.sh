@@ -2,3 +2,4 @@
 
 curl https://krypt.co/kr | sh
 kr pair
+kr codesign
