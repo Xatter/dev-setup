@@ -1,9 +1,12 @@
 #!/bin/bash
 
-if [[ $OSTYPE == "darwin"* ]]; then
-	brew install zsh
-else
-	sudo apt install -y zsh
+if ! command -v zsh &> /dev/null
+then
+	if [[ $OSTYPE == "darwin"* ]]; then
+		brew install zsh
+	else
+		sudo apt install -y zsh
+	fi
 fi
 
 # Install Oh My Zsh
