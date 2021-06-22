@@ -8,3 +8,5 @@ ln -s $(pwd)/jim.zsh-theme ~/.oh-my-zsh/themes/jim.zsh-theme
 rm ~/.zshrc
 ln -s $(pwd)/.zshrc ~/.zshrc
 
+# Setup VIM
+ln -s $(pwd)/.vimrc ~/.vimrc
