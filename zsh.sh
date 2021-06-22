@@ -1,7 +1,13 @@
 #!/bin/bash
 
+if [[ $OSTYPE == "darwin"* ]]; then
+	brew install zsh
+else
+	sudo apt install -y zsh
+fi
+
 # Install Oh My Zsh
-curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Install my ZSH Theme
 ln -s $(pwd)/jim.zsh-theme ~/.oh-my-zsh/themes/jim.zsh-theme
