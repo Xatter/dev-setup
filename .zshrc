@@ -98,3 +98,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if [[ $OSTYPE == "darwin"* ]]; then
+	alias nproc="sysctl -n hw.ncpu"
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jwallace/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jwallace/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jwallace/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jwallace/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+
+
+export DRONE_SERVER=https://theciserver.com
+export DRONE_TOKEN=$(cat ~/drone_token.txt)
+
+#eval $(docker-machine env prl-dev)
+eval $(direnv hook zsh)
