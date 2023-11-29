@@ -189,7 +189,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.dock autohide -int 1
 
 # Autohide the menu bar
-defaults write "Apple Global Domain" "_HIHideMenuBar" -int 1
+# defaults write "Apple Global Domain" "_HIHideMenuBar" -int 1
 
 # Enable maginfication on mouse over
 defaults write com.apple.dock magnification -int 1
