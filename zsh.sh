@@ -19,3 +19,10 @@ ln -s $(pwd)/.zshrc ~/.zshrc
 
 # Setup VIM
 ln -s $(pwd)/.vimrc ~/.vimrc
+
+# Set zsh as default shell
+if [ "$SHELL" != "$(which zsh)" ]; then
+    echo "Setting zsh as default shell..."
+    chsh -s $(which zsh)
+    echo "Default shell changed to zsh. Please log out and log back in for changes to take effect."
+fi
