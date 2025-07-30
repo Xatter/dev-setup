@@ -113,9 +113,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-
+export PATH=$PATH:/home/xatter/.dotnet/tools
 export DRONE_SERVER=https://theciserver.com
 export DRONE_TOKEN=$(cat ~/drone_token.txt)
 
 #eval $(docker-machine env prl-dev)
-eval $(direnv hook zsh)
+#eval $(direnv hook zsh)
