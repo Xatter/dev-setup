@@ -60,18 +60,17 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # You might want to disable these if you are not running an SSD               #
 ###############################################################################
 
-# Disable local Time Machine snapshots
-sudo tmutil disablelocal
+# Disable local Time Machine snapshots (deprecated in newer macOS versions)
+# sudo tmutil disablelocal
 
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
 
-# Remove the sleep image file to save disk space
-sudo rm -f /private/var/vm/sleepimage
-# Create a zero-byte file instead…
-sudo touch /private/var/vm/sleepimage
-# …and make sure it can’t be rewritten
-sudo chflags uchg /private/var/vm/sleepimage
+# Note: Sleep image manipulation is no longer needed/recommended in modern macOS
+# The following commands are kept for reference but commented out
+# sudo rm -f /private/var/vm/sleepimage
+# sudo touch /private/var/vm/sleepimage
+# sudo chflags uchg /private/var/vm/sleepimage
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -104,15 +103,23 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
+# Set a fast keyboard repeat rate (based on your config)
+defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# Stop iTunes from responding to the keyboard media keys
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+# Disable app switching when activating spaces (from your config)
+defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false
+
+# Set smart quotes options (from your config)
+defaults write NSGlobalDomain KB_DoubleQuoteOption -string ""abc""
+defaults write NSGlobalDomain KB_SingleQuoteOption -string "'abc'"
+
+# Stop iTunes/Music from responding to the keyboard media keys
+# Note: This path may not exist in newer macOS versions
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null || true
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
@@ -154,8 +161,8 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+# Empty Trash securely by default (deprecated in newer macOS)
+# defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
