@@ -109,13 +109,20 @@ if [ -f '/Users/jwallace/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 if [ -f '/Users/jwallace/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jwallace/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 export PATH=$PATH:/home/xatter/.dotnet/tools
-export DRONE_SERVER=https://theciserver.com
-export DRONE_TOKEN=$(cat ~/drone_token.txt)
+# export DRONE_SERVER=https://theciserver.com
+# export DRONE_TOKEN=$(cat ~/drone_token.txt)
 
 #eval $(docker-machine env prl-dev)
 #eval $(direnv hook zsh)
+
+# bun completions
+[ -s "/Users/xatter/.bun/_bun" ] && source "/Users/xatter/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

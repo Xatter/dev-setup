@@ -10,8 +10,8 @@ else
 fi
 
 # Install node and npm
-nvm install node
-nvm use node
+nvm install --lts
+nvm use --lts
 
 # Check for node and npm again
 if ! command -v node &> /dev/null
@@ -29,3 +29,7 @@ fi
 npm install -g @anthropic-ai/claude-code
 npm install -g @qwen-code/qwen-code
 npm install -g @google/gemini-cli
+
+./install_gh.sh
+gh auth login
+gh extension install github/gh-copilot
