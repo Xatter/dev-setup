@@ -1,0 +1,25 @@
+Steam 3D Audio Setup Guide
+==========================
+
+For games that support 3D audio, use these launch options:
+
+Basic 3D Audio (recommended):
+    PULSE_LATENCY_MSEC=60 %command%
+
+For games with OpenAL support:
+    PULSE_LATENCY_MSEC=60 OPENAL_DRIVERS=pulse %command%
+
+For Proton games that need Windows audio compatibility:
+    PULSE_LATENCY_MSEC=60 WINEDLLOVERRIDES="dsound=n" %command%
+
+Games known to work well with HRTF:
+- Counter-Strike 2
+- Team Fortress 2
+- Most Source engine games
+- Games using OpenAL or Steam Audio
+- Many Unity/Unreal games
+
+Test your setup:
+- Enable 3D Audio or Spatial Audio in game settings
+- Look for "Headphone" mode options
+- HRTF works best with stereo headphones
