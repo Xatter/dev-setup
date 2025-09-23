@@ -20,6 +20,12 @@ ln -s $(pwd)/.zshrc ~/.zshrc
 # Setup VIM
 ln -s $(pwd)/.vimrc ~/.vimrc
 
+# Setup Claude configuration
+if [ -d "$(pwd)/dotfiles/claude" ]; then
+    echo "Setting up Claude configuration..."
+    $(pwd)/dotfiles/claude/setup.sh
+fi
+
 # Set zsh as default shell
 if [ "$SHELL" != "$(which zsh)" ]; then
     echo "Setting zsh as default shell..."

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(jq:*)",
+      "Bash(nvidia-smi:*)"
+    ],
+    "deny": []
+  }
+}

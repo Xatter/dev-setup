@@ -1,0 +1,1 @@
+- We should always use the tdd-engineer when implementing features and fixing bugs. Bugs especially should first create a failing test that reproduces the issue before we implement fixes. We should be continuously running the unit tests after changes to ensure we've not broken existing functionality and all tests should be passing before we declare that we're done
