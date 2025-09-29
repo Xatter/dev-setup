@@ -18,6 +18,9 @@ npm install -g @anthropic-ai/claude-code
 echo "📦 Installing Qwen Code..."
 npm install -g @qwen-code/qwen-code
 
+echo "📦 Installing Codex..."
+npm install -g @openai/codex
+
 echo "📦 Installing Gemini CLI..."
 npm install -g @google/gemini-cli
 
