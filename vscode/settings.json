@@ -1,0 +1,14 @@
+{
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "chat.tools.terminal.autoApprove": {
+        "npm run build": true,
+        "npm test": true,
+        "npm run dev": true
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "claudeCode.selectedModel": "default",
+    "redhat.telemetry.enabled": false,
+    "claudeCode.useCtrlEnterToSend": true,
+    "claudeCode.preferredLocation": "panel"
+}
