@@ -1,0 +1,310 @@
+#!/usr/bin/env bash
+# Setup macOS Terminal.app with JetBrains Mono font and Gruvbox Dark color scheme
+
+set -e
+
+PROFILE_NAME="Gruvbox Dark"
+FONT_SIZE=14
+
+echo "Setting up Terminal with JetBrains Mono and Gruvbox Dark..."
+
+# Check for Homebrew
+if ! command -v brew &> /dev/null; then
+    echo "Error: Homebrew is required. Install it first with brew.sh"
+    exit 1
+fi
+
+# Install JetBrains Mono font
+echo "Installing JetBrains Mono font..."
+if ls ~/Library/Fonts/JetBrainsMono*.ttf &> /dev/null || \
+   ls /Library/Fonts/JetBrainsMono*.ttf &> /dev/null || \
+   brew list --cask font-jetbrains-mono &> /dev/null; then
+    echo "JetBrains Mono already installed"
+else
+    brew tap homebrew/cask-fonts 2>/dev/null || true
+    brew install --cask font-jetbrains-mono
+fi
+
+# Create temporary directory for the terminal profile
+TEMP_DIR=$(mktemp -d)
+PROFILE_FILE="$TEMP_DIR/Gruvbox Dark.terminal"
+
+# Gruvbox Dark color palette (RGB values 0-1)
+# Background: #282828 -> 0.157, 0.157, 0.157
+# Foreground: #ebdbb2 -> 0.922, 0.859, 0.698
+# Black: #282828, Red: #cc241d, Green: #98971a, Yellow: #d79921
+# Blue: #458588, Magenta: #b16286, Cyan: #689d6a, White: #a89984
+# Bright variants: Black: #928374, Red: #fb4934, Green: #b8bb26, Yellow: #fabd2f
+# Blue: #83a598, Magenta: #d3869b, Cyan: #8ec07c, White: #ebdbb2
+
+cat > "$PROFILE_FILE" << 'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Gruvbox Dark</string>
+	<key>type</key>
+	<string>Window Settings</string>
+	<key>ProfileCurrentVersion</key>
+	<real>2.07</real>
+	<key>columnCount</key>
+	<integer>120</integer>
+	<key>rowCount</key>
+	<integer>36</integer>
+	<key>Bell</key>
+	<false/>
+	<key>VisualBell</key>
+	<true/>
+	<key>VisualBellOnlyWhenMuted</key>
+	<true/>
+	<key>FontAntialias</key>
+	<true/>
+	<key>UseBoldFonts</key>
+	<true/>
+	<key>UseBrightBold</key>
+	<true/>
+	<key>FontWidthSpacing</key>
+	<real>1.0</real>
+	<key>FontHeightSpacing</key>
+	<real>1.0</real>
+	<key>Font</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
+	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QFUpl
+	dEJyYWluc01vbm8tUmVndWxhctIXGBkaWiRjbGFzc25hbWVYJGNsYXNzZXNWTlNGb250
+	ohkbWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmdud36FjpCSlKyxvMXMzwAAAAAAAAEBAAAA
+	AAAAABwAAAAAAAAAAAAAAAAAAADY
+	</data>
+	<key>BackgroundColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NJMC4xNTY4NjI3NRACD4AChBIUFRZaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmplY3QACAARABoA
+	JAAqADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIIAhACXAKwAsQC5AAAAAAAAAAEBAAAA
+	AAAAABkAAAAAAAAAAAAAAAAAAAC7
+	</data>
+	<key>TextColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NJMC45MjE1Njg2MRAID4AChBIUFRZaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmplY3QACAARABoA
+	JAAqADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIIAhACXAKwAsQC5AAAAAAAAAAEBAAAA
+	AAAAABkAAAAAAAAAAAAAAAAAAAC7
+	</data>
+	<key>TextBoldColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NHMSAwIDAgMRACD4AChBIUFRZaJGNsYXNz
+	bmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmplY3QACAARABoAJAAq
+	ADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIIAhACTAKgArQC1AAAAAAAAAAEBAAAAAAAA
+	ABkAAAAAAAAAAAAAAAAAAAC3
+	</data>
+	<key>CursorColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NJMC45MjE1Njg2MRAID4AChBIUFRZaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmplY3QACAARABoA
+	JAAqADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIIAhACXAKwAsQC5AAAAAAAAAAEBAAAA
+	AAAAABkAAAAAAAAAAAAAAAAAAAC7
+	</data>
+	<key>SelectionColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NJMC4yNTA5ODA0MRAID4AChBIUFRZaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmplY3QACAARABoA
+	JAAqADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIIAhACXAKwAsQC5AAAAAAAAAAEBAAAA
+	AAAAABkAAAAAAAAAAAAAAAAAAAC7
+	</data>
+	<key>ANSIBlackColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NJMC4xNTY4NjI3NRACD4AChBIUFRZaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmplY3QACAARABoA
+	JAAqADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIIAhACXAKwAsQC5AAAAAAAAAAEBAAAA
+	AAAAABkAAAAAAAAAAAAAAAAAAAC7
+	</data>
+	<key>ANSIRedColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBQwLjggMC4xNDEgMC4xMTQgMRADgAKE
+	EhQVFlokY2xhc3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiFxhXTlNDb2xvclhOU09iamVj
+	dAAIABEAGgAkACoAMgA3AEkATABRAFMAWgBgAGsAdAB+AIAAgwCFAJwAsQC2AL4AAAAA
+	AAAAAQEAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAMc=
+	</data>
+	<key>ANSIGreenColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjU5NiAwLjU5MiAwLjEwMiAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIYellowColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjg0MyAwLjYgMC4xMjkgMRADgAKE
+	EhQVFlokY2xhc3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiFxhXTlNDb2xvclhOU09iamVj
+	dAAIABEAGgAkACoAMgA3AEkATABRAFMAWgBgAGsAdAB+AIAAgwCFAJ0AsgC3AL8AAAAA
+	AAAAAQEAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAMg=
+	</data>
+	<key>ANSIBlueColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjI3MSAwLjUyMiAwLjUzMyAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIMagentaColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjY5NCAwLjM4NCAwLjUyNSAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSICyanColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjQwOCAwLjYxNiAwLjQxNiAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIWhiteColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjY1OSAwLjYgMC41MTggMRADgAKE
+	EhQVFlokY2xhc3NuYW1lWCRjbGFzc2VzV05TQ29sb3KiFxhXTlNDb2xvclhOU09iamVj
+	dAAIABEAGgAkACoAMgA3AEkATABRAFMAWgBgAGsAdAB+AIAAgwCFAJ0AsgC3AL8AAAAA
+	AAAAAQEAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAMg=
+	</data>
+	<key>ANSIBrightBlackColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjU3MyAwLjUxNCAwLjQ1NSAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIBrightRedColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjk4NCAwLjI4NiAwLjIwNCAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIBrightGreenColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjcyMiAwLjczMyAwLjE0OSAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIBrightYellowColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBQwLjk4IDAuNzQxIDAuMTg0IDEQA4AC
+	hBIUFRZaJGNsYXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmpl
+	Y3QACAARABoAJAAqADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIMAhQCcALEAtgC+AAAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAxw==
+	</data>
+	<key>ANSIBrightBlueColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjUxNCAwLjY0NyAwLjU5NiAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIBrightMagentaColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjgyNyAwLjUyNSAwLjYwOCAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIBrightCyanColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NfEBUwLjU1NyAwLjc1MyAwLjQ4NiAxEAOA
+	AoQSFBUWWidjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xvcqIXGFdOU0NvbG9yWE5TT2Jq
+	ZWN0AAgAEQAaACQAKgAyADcASQBMAFEAUwBaAGAAawB0AH4AgACDAIUAnQCyALcAvwAA
+	AAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAyA==
+	</data>
+	<key>ANSIBrightWhiteColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxAREldO
+	U1doaXRlXE5TQ29sb3JTcGFjZVYkY2xhc3NJMC45MjE1Njg2MRAID4AChBIUFRZaJGNs
+	YXNzbmFtZVgkY2xhc3Nlc1dOU0NvbG9yohcYV05TQ29sb3JYTlNPYmplY3QACAARABoA
+	JAAqADIANwBJAEwAUQBTAFoAYABrAHQAfgCAAIIAhACXAKwAsQC5AAAAAAAAAAEBAAAA
+	AAAAABkAAAAAAAAAAAAAAAAAAAC7
+	</data>
+</dict>
+</plist>
+EOF
+
+echo "Importing Terminal profile..."
+
+PLIST="$HOME/Library/Preferences/com.apple.Terminal.plist"
+
+# Ensure cfprefsd doesn't cache old values
+killall cfprefsd 2>/dev/null || true
+
+# Create the Window Settings dict if it doesn't exist
+/usr/libexec/PlistBuddy -c "Add ':Window Settings' dict" "$PLIST" 2>/dev/null || true
+
+# Remove existing profile if present
+/usr/libexec/PlistBuddy -c "Delete ':Window Settings:$PROFILE_NAME'" "$PLIST" 2>/dev/null || true
+
+# Add the new profile dict
+/usr/libexec/PlistBuddy -c "Add ':Window Settings:$PROFILE_NAME' dict" "$PLIST"
+
+# Copy each key from the profile file to the Terminal plist
+/usr/libexec/PlistBuddy -c "Merge '$PROFILE_FILE' ':Window Settings:$PROFILE_NAME'" "$PLIST"
+
+# Set as default profile for new windows and startup
+defaults write com.apple.Terminal "Default Window Settings" -string "$PROFILE_NAME"
+defaults write com.apple.Terminal "Startup Window Settings" -string "$PROFILE_NAME"
+
+echo "Profile imported successfully."
+
+# Clean up
+rm -rf "$TEMP_DIR"
+
+# Force preferences daemon to reload
+killall cfprefsd 2>/dev/null || true
+
+echo ""
+echo "Done! Terminal has been configured with:"
+echo "  - Font: JetBrains Mono ${FONT_SIZE}pt"
+echo "  - Color scheme: Gruvbox Dark"
+echo ""
+echo "IMPORTANT: You must QUIT Terminal completely (Cmd+Q) and reopen it"
+echo "for the changes to take effect. Terminal caches preferences in memory."

@@ -108,6 +108,8 @@ if [ -f '/Users/jwallace/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jwallace/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jwallace/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
+if [ -f "$HOME/.pushover.auth" ]; then . "$HOME/.pushover.auth"; fi
+
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -142,5 +144,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 unsetopt AUTO_CD
 
 export TODO_API_KEY="REDACTED"
-
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+source ~/code/todo/cli/todo-completion.zsh
