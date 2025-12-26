@@ -143,7 +143,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 # alias sudo="sudo -A"
 unsetopt AUTO_CD
 
-export TODO_API_KEY="REDACTED"
+if [ -f "$HOME/.todo.auth" ]; then . "$HOME/.todo.auth"; fi
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 source ~/code/todo/cli/todo-completion.zsh
