@@ -81,16 +81,18 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
 defaults write com.apple.AppleBluetoothMultitouch Clicking -int 1
 
 # Trackpad: enable 3 finger drag
+# (macOS Ventura+ moved this to Accessibility > Pointer Control > Trackpad Options)
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1
 defaults write com.apple.AppleBluetoothMultitouch TrackpadThreeFingerDrag -int 1
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -int 1
 
 # Trackpad: gestures
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 2;
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2;
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 2;
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2;
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 0;
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0;
+# Note: TrackpadThreeFingerDrag is set above — do not override it here
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0;
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0;
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 1;
