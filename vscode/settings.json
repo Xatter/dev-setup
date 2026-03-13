@@ -10,5 +10,7 @@
     "claudeCode.selectedModel": "default",
     "redhat.telemetry.enabled": false,
     "claudeCode.useCtrlEnterToSend": true,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "git.openRepositoryInParentFolders": "never",
+    "claudeCode.allowDangerouslySkipPermissions": true
 }

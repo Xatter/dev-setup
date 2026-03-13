@@ -116,8 +116,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 export PATH=$PATH:/home/xatter/.dotnet/tools
-# export DRONE_SERVER=https://theciserver.com
-# export DRONE_TOKEN=$(cat ~/drone_token.txt)
+source ~/.drone.auth
 
 #eval $(docker-machine env prl-dev)
 #eval $(direnv hook zsh)
@@ -144,6 +143,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 unsetopt AUTO_CD
 
 if [ -f "$HOME/.todo.auth" ]; then . "$HOME/.todo.auth"; fi
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
 
 source ~/code/todo/cli/todo-completion.zsh
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
