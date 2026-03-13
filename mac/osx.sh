@@ -115,6 +115,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Disable app switching when activating spaces (from your config)
 defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false
 
+# Pair monitors so switching spaces moves all displays together
+# (disables "Displays have separate Spaces" in Mission Control prefs)
+defaults write com.apple.spaces spans-displays -bool true
+
 # Set smart quotes options (from your config)
 defaults write NSGlobalDomain KB_DoubleQuoteOption -string ""abc""
 defaults write NSGlobalDomain KB_SingleQuoteOption -string "'abc'"

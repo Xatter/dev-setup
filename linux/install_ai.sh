@@ -26,7 +26,7 @@ then
     exit
 fi
 
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 npm install -g @qwen-code/qwen-code
 npm install -g @google/gemini-cli
 

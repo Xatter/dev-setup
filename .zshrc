@@ -143,8 +143,12 @@ export PATH="/opt/homebrew/bin:$PATH"
 unsetopt AUTO_CD
 
 if [ -f "$HOME/.todo.auth" ]; then . "$HOME/.todo.auth"; fi
-export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
-
 source ~/code/todo/cli/todo-completion.zsh
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/xatter/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
