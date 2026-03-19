@@ -5,5 +5,17 @@
       "Read"
     ]
   },
-  "model": "opusplan"
+  "enabledPlugins": {
+    "marketing@knowledge-work-plugins": true,
+    "swift-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "knowledge-work-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/knowledge-work-plugins"
+      }
+    }
+  },
+  "effortLevel": "high"
 }

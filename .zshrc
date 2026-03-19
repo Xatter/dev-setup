@@ -1,6 +1,5 @@
 ZSH_DISABLE_COMPFIX="true"
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -98,9 +97,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias t=taskleef                                                                                        
+alias todo=taskleef
+
 if [[ $OSTYPE == "darwin"* ]]; then
 	alias nproc="sysctl -n hw.ncpu"
 fi
+
+# If a taskleef auth file exists, source it into the shell
+if [ -f "$HOME/.taskleef.auth" ]; then . "$HOME/.taskleef.auth"; fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jwallace/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jwallace/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -115,7 +121,6 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
-export PATH=$PATH:/home/xatter/.dotnet/tools
 source ~/.drone.auth
 
 #eval $(docker-machine env prl-dev)
@@ -126,7 +131,6 @@ source ~/.drone.auth
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # nvm
@@ -135,7 +139,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
-export PATH="/opt/homebrew/bin:$PATH"
 
 
 # Only if Linux
@@ -144,11 +147,16 @@ unsetopt AUTO_CD
 
 if [ -f "$HOME/.todo.auth" ]; then . "$HOME/.todo.auth"; fi
 source ~/code/todo/cli/todo-completion.zsh
-export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/xatter/.lmstudio/bin"
+# export PATH="$PATH:/Users/xatter/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
+
+# Consolidated PATH assignments
+export PATH="$HOME/.bin:/usr/local/bin:/opt/homebrew/bin:$HOME/.local/bin:/opt/homebrew/opt/postgresql@17/bin:/home/xatter/.dotnet/tools:$BUN_INSTALL/bin:/Users/xatter/.lmstudio/bin:$PATH"
+
+# opencode
+export PATH=/Users/xatter/.opencode/bin:$PATH
+
