@@ -68,7 +68,7 @@ ZSH_THEME="jim"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git direnv vi-mode virtualenv)
+plugins=(git vi-mode virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,7 +121,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
-source ~/.drone.auth
+if [ -f "$HOME/.drone.auth" ]; then . "$HOME/.drone.auth"; fi
 
 #eval $(docker-machine env prl-dev)
 #eval $(direnv hook zsh)
@@ -146,7 +146,7 @@ export SUDO_ASKPASS=/usr/bin/ssh-askpass
 unsetopt AUTO_CD
 
 if [ -f "$HOME/.todo.auth" ]; then . "$HOME/.todo.auth"; fi
-source ~/code/todo/cli/todo-completion.zsh
+if [ -f "$HOME/code/todo/cli/todo-completion.zsh" ]; then . "$HOME/code/todo/cli/todo-completion.zsh"; fi
 
 # Added by LM Studio CLI (lms)
 # export PATH="$PATH:/Users/xatter/.lmstudio/bin"
