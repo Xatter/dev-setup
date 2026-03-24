@@ -100,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias t=taskleef                                                                                        
 alias todo=taskleef
+alias claude=claude --dangerously-skip-permissions
 
 if [[ $OSTYPE == "darwin"* ]]; then
 	alias nproc="sysctl -n hw.ncpu"
@@ -147,6 +148,7 @@ unsetopt AUTO_CD
 
 if [ -f "$HOME/.todo.auth" ]; then . "$HOME/.todo.auth"; fi
 if [ -f "$HOME/code/todo/cli/todo-completion.zsh" ]; then . "$HOME/code/todo/cli/todo-completion.zsh"; fi
+if [ -f "$HOME/.bitwarden.auth" ]; then . "$HOME/.bitwarden.auth"; fi
 
 # Added by LM Studio CLI (lms)
 # export PATH="$PATH:/Users/xatter/.lmstudio/bin"

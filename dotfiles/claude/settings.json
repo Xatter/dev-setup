@@ -2,12 +2,15 @@
   "permissions": {
     "allow": [
       "WebFetch",
-      "Read"
+      "Read",
+      "Bash(git *)",
+      "Bash(gh *)"
     ]
   },
   "enabledPlugins": {
     "marketing@knowledge-work-plugins": true,
-    "swift-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "knowledge-work-plugins": {
@@ -17,5 +20,19 @@
       }
     }
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true,
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.bin/claude-notify 'Claude Code' \"$CLAUDE_NOTIFICATION_MESSAGE\""
+          }
+        ]
+      }
+    ]
+  }
 }
