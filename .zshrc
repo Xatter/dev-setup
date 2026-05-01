@@ -100,7 +100,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias t=taskleef                                                                                        
 alias todo=taskleef
-alias claude=claude --dangerously-skip-permissions
 
 if [[ $OSTYPE == "darwin"* ]]; then
 	alias nproc="sysctl -n hw.ncpu"

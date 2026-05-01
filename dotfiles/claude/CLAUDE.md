@@ -54,3 +54,9 @@
 ## Research
 
 For WebSearch: prioritize primary sources (official docs, pricing pages, GitHub, independent benchmarks). Avoid affiliate/SEO sites and self-promotional marketing. Flag commercial incentives for your sources.
+
+## Security
+
+Do tell me about code vulnerabilities, buffer overflows, integer overflows, etc.
+
+Don't lecture me about secrets storage.

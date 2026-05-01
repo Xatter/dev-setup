@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Activity Summary - Xatter</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    h1 { border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+    h2 { color: #1e40af; margin-top: 2.5rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.3rem; }
+    h3 { color: #374151; margin-top: 1.5rem; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #1e40af;
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f3f4f6; }
+    tr:hover { background: #e5e7eb; }
+    td:nth-child(2) { text-align: center; white-space: nowrap; }
+    td:nth-child(3) { white-space: nowrap; }
+    .stat-box {
+      display: inline-block;
+      background: #1e40af;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      margin: 0.25rem;
+      text-align: center;
+    }
+    .stat-box .number { font-size: 1.8rem; font-weight: 700; display: block; }
+    .stat-box .label { font-size: 0.8rem; opacity: 0.9; }
+    .stats-row { margin: 1.5rem 0; }
+    ul { margin: 0.5rem 0; }
+    li { margin: 0.25rem 0; }
+    .highlight { background: #fef3c7; padding: 0.15rem 0.35rem; border-radius: 3px; }
+    .section-intro { color: #6b7280; font-style: italic; margin-bottom: 1rem; }
+    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+<h1>GitHub Activity Summary</h1>
+<p class="section-intro">Generated 2026-03-20 for github.com/Xatter (non-fork, owned repositories only)</p>
+
+<div class="stats-row">
+  <div class="stat-box"><span class="number">~1,800</span><span class="label">Total Commits</span></div>
+  <div class="stat-box"><span class="number">30+</span><span class="label">Active Repos</span></div>
+  <div class="stat-box"><span class="number">~800</span><span class="label">2025 Commits</span></div>
+  <div class="stat-box"><span class="number">~960</span><span class="label">2026 YTD Commits</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2>2025 Summary (~800+ commits across 25 repos)</h2>
+<!-- ============================================================ -->
+
+<h3>Major Projects</h3>
+<table>
+  <thead>
+    <tr><th>Repo</th><th>Commits</th><th>Period</th><th>What</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>infrastructure</strong></td><td>~229</td><td>Mar–Dec</td>
+      <td>Terraform/Docker Swarm for all services — Cloudflare DNS migration, SSL automation, NFS volumes, S3 state backend, NAS DR, deployments for everything else</td>
+    </tr>
+    <tr>
+      <td><strong>readmebio.com</strong></td><td>~193</td><td>Sep–Dec</td>
+      <td>Full SaaS product — WYSIWYG editor, profiles, LinkedIn/Google/Microsoft SSO, company directories, personality assessments, admin dashboard, SEO</td>
+    </tr>
+    <tr>
+      <td><strong>ThreadsAutomod</strong></td><td>~163</td><td>Jul–Aug</td>
+      <td>Automoderation platform — AI ad-hominem detection, webhooks, audit screen, A/B testing, event sourcing (migrated to F#), plugin architecture</td>
+    </tr>
+    <tr>
+      <td><strong>TradingPlatform</strong></td><td>~120</td><td>Aug–Dec</td>
+      <td>Portfolio management — Public.com API, real-time SignalR, DCA/GRB strategies, VIX integration, Plaid, MACD momentum, CP-SAT tax-efficient allocation</td>
+    </tr>
+    <tr>
+      <td><strong>SmartThingsHomekitBridge</strong></td><td>~62</td><td>Sep–Dec</td>
+      <td>IoT bridge — Matter/HAP, Samsung AC control, auto-mode HVAC, plugin architecture, web UI</td>
+    </tr>
+    <tr>
+      <td><strong>todo</strong></td><td>55</td><td>Feb–Dec</td>
+      <td>Task management app — Vue.js/TS rewrite, kanban boards, repeating todos, NLP patterns, tags, sub-tasks</td>
+    </tr>
+    <tr>
+      <td><strong>WordpressToThreads</strong></td><td>42</td><td>Jun–Oct</td>
+      <td>WP plugin — cross-posting to Threads &amp; X/Twitter, OAuth, media attachments, carousel, scheduled posting</td>
+    </tr>
+    <tr>
+      <td><strong>podcastify.net</strong></td><td>~40</td><td>Dec</td>
+      <td>Podcast aggregator — built entirely in Dec: Whisper transcription, commercial detection, ElevenLabs TTS, distributed GPU workers</td>
+    </tr>
+    <tr>
+      <td><strong>Automation</strong></td><td>~40</td><td>Jan–May</td>
+      <td>Home automation — Twilio, Ubiquiti API, Drone CI</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Smaller Projects</h3>
+<table>
+  <thead>
+    <tr><th>Repo</th><th>Commits</th><th>Period</th><th>What</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>dev-setup</td><td>20</td><td>Jul–Dec</td><td>Linux gaming setup, installer scripts, Claude config, cross-platform dotfiles</td></tr>
+    <tr><td>jimai</td><td>20</td><td>Nov</td><td>AI orchestrator with Gmail/Calendar integration</td></tr>
+    <tr><td>PasteAnyway</td><td>17</td><td>Mar–Dec</td><td>Browser extension, TDD refactoring</td></tr>
+    <tr><td>todo-ios</td><td>16</td><td>Dec</td><td>Native iOS app with Reminders import, notifications</td></tr>
+    <tr><td>freecycle-app</td><td>5</td><td>Jun</td><td>JWT auth, database migration system</td></tr>
+    <tr><td>EmailClassifier</td><td>4</td><td>Aug</td><td>AI email classification using Llama 3.1 8B</td></tr>
+    <tr><td>linkedinprofile</td><td>3</td><td>Apr</td><td>About section updates, split into separate files</td></tr>
+    <tr><td>AgentMCPServer</td><td>3</td><td>Jul</td><td>MCP server with IMAP support</td></tr>
+    <tr><td>Various scaffolds</td><td>~8</td><td>Mar–Sep</td><td>PdfMerge, unsubscribe, DesktopWidgets, MatterServer, DatingApp, aidd-notes, openpricemapv2</td></tr>
+  </tbody>
+</table>
+
+<h3>Seasonal Pattern</h3>
+<ul>
+  <li><strong>Q1–Q2 (Jan–Jun):</strong> Lighter — Automation updates, todo API work, WP plugin started, PasteAnyway launched</li>
+  <li><strong>Q3 (Jul–Sep):</strong> Explosive — ThreadsAutomod, TradingPlatform, readmebio.com, SmartThingsHomekitBridge all launched</li>
+  <li><strong>Q4 (Oct–Dec):</strong> Sustained — readmebio.com features, todo kanban, podcastify.net built from scratch in Dec</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>2026 YTD (Jan 1 – Mar 20): ~960+ commits across 23 repos</h2>
+<!-- ============================================================ -->
+
+<h3>Major Projects</h3>
+<table>
+  <thead>
+    <tr><th>Repo</th><th>Commits</th><th>Period</th><th>What</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>todo (Taskleef)</strong></td><td>~441</td><td>Jan–Mar</td>
+      <td>Massive push — board sharing with SignalR real-time, AI assistant tools, Paddle payments, MCP server (32 tools), dark mode, location reminders, inbox view, admin dashboard, SEO, rebrand to TaskLeef</td>
+    </tr>
+    <tr>
+      <td><strong>PersonalFinance</strong></td><td>~194</td><td>Jan–Mar</td>
+      <td>Built from scratch — SimpleFIN Bridge, AI categorization via Claude, double-entry bookkeeping, tax classification, merchant merge UI</td>
+    </tr>
+    <tr>
+      <td><strong>Podcatcher</strong></td><td>~100+</td><td>Jan–Mar</td>
+      <td>Full iOS/watchOS podcast app — streaming with MP3 seek tables, Apple Watch, iCloud sync, Whisper transcription, Live Activity, keyword filters</td>
+    </tr>
+    <tr>
+      <td><strong>infrastructure</strong></td><td>~78</td><td>Jan–Mar</td>
+      <td>Nginx hardening, Drone CI module, restic backups, Plex migration (Jellyfin&rarr;Plex with QSV), Meetmidly deployment, Stripe/Resend setup</td>
+    </tr>
+    <tr>
+      <td><strong>midly-backend</strong></td><td>~52</td><td>Feb–Mar</td>
+      <td>Meetmidly backend — Stripe Identity verification, blog platform with admin, Google Analytics, sitemap</td>
+    </tr>
+    <tr>
+      <td><strong>todo-ios</strong></td><td>~47</td><td>Jan–Mar</td>
+      <td>TaskLeef rebrand, drag-and-drop, Reminders auto-import, Drone CI, App Store readiness</td>
+    </tr>
+    <tr>
+      <td><strong>PrivateGifKeyboard</strong></td><td>47</td><td>Feb 21–22</td>
+      <td><span class="highlight">Built in 2 days!</span> iOS keyboard extension with iCloud sync, tag search, GIF compression</td>
+    </tr>
+    <tr>
+      <td><strong>todo-android</strong></td><td>25</td><td>Feb 17–18</td>
+      <td><span class="highlight">Built in 2 days!</span> Full Kotlin/Compose app with auth, notifications, projects</td>
+    </tr>
+    <tr>
+      <td><strong>midly</strong></td><td>18</td><td>Feb–Mar</td>
+      <td>Meetmidly product design — PRD, compatibility questions, messaging system, blog content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Smaller Projects</h3>
+<table>
+  <thead>
+    <tr><th>Repo</th><th>Commits</th><th>Period</th><th>What</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>PasteAnyway</td><td>16</td><td>Jan–Mar</td><td>Chrome MV3, Firefox store builds, AI integration</td></tr>
+    <tr><td>rateitall</td><td>10</td><td>Mar</td><td>Chrome MV3 overhaul, GrubHub/Amazon support</td></tr>
+    <tr><td>taskleef</td><td>7</td><td>Jan–Mar</td><td>CLI rewritten from bash to Rust</td></tr>
+    <tr><td>SmartThingsHomekitBridge</td><td>7</td><td>Jan–Mar</td><td>Auto-mode monitor plugin</td></tr>
+    <tr><td>WordpressToThreads</td><td>5</td><td>Jan–Mar</td><td>Container status polling, cron auto-post</td></tr>
+    <tr><td>dev-setup</td><td>5</td><td>Mar</td><td>zshrc fixes, PATH consolidation, direnv cleanup</td></tr>
+    <tr><td>aboutme</td><td>3</td><td>Mar</td><td>Personal info files, current priorities</td></tr>
+    <tr><td>taskleef-plugin</td><td>2</td><td>Feb</td><td>Claude Code plugin for Taskleef</td></tr>
+    <tr><td>podcastify.net</td><td>2</td><td>Jan</td><td>GPU build support, feed fixes</td></tr>
+    <tr><td>TradingPlatform</td><td>2</td><td>Jan–Mar</td><td>Transaction export and P&amp;L scripts</td></tr>
+    <tr><td>Various (1 commit each)</td><td>3</td><td>Jan–Mar</td><td>linkedinprofile, readmebio.com, ThreadsAutomod, EmailClassifier</td></tr>
+  </tbody>
+</table>
+
+<h3>Standout Stats</h3>
+<ul>
+  <li><strong>Most intense burst:</strong> PrivateGifKeyboard — 47 commits in 2 days</li>
+  <li><strong>Biggest sustained effort:</strong> todo/Taskleef at 441 commits in &lt; 3 months</li>
+  <li><strong>New projects launched from scratch:</strong> PersonalFinance, Podcatcher, midly-backend, PrivateGifKeyboard, todo-android</li>
+  <li><strong>Clear acceleration:</strong> ~960 commits in under 3 months (2026) vs ~800 in all of 2025</li>
+</ul>
+
+<footer>
+  Generated by Claude Code on 2026-03-20 from GitHub commit history via <code>gh</code> CLI.
+</footer>
+
+</body>
+</html>
